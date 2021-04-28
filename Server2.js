@@ -3,7 +3,7 @@ const { json } = require('express');
 const express = require('express');
 const app = express();
 const jwt = require('jsonwebtoken');
-const PORT = process.env.PORT || 8000;
+const PORT = process.env.PORT || 4000;
 const ACCESS_TOKEN_SECRET = process.env.ACCESS_TOKEN_SECRET || "shhh its a secret";
 
 
@@ -25,6 +25,14 @@ const postData = [
 app.get('/posts', authToken, (req, res) => {
     console.log(req.user)
     res.json(postData.filter(post => post.username === req.user.name));
+})
+
+app.post('/login', (req, res) => {  
+    const username = req.body.username;
+    const user = { name: username };
+    console.log('user here!!! => ', user)
+    const accessToken = jwt.sign(user, ACCESS_TOKEN_SECRET);
+    res.json({ accessToken: accessToken });
 })
 
 

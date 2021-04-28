@@ -1,5 +1,5 @@
-GET http://localhost:8000/posts
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiSm9obiIsImlhdCI6MTYxOTU3NTk3M30.h8E43G9l5-pWindQPQIb-J1xoPe5p2W_AGxP7z1veIs
+GET http://localhost:4000/posts
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiQWxleCIsImlhdCI6MTYxOTY1MzkyMX0.YrrJ7y82qTI-7leeqWUrlNU0bPZo8qKlYDg90sj_O4E
 
 ###
 
@@ -7,7 +7,7 @@ POST http://localhost:8000/login
 Content-Type: application/json
 
 {
-    "username": "John"
+    "username": "Alex"
 }
 
 ###
