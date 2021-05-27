@@ -23,8 +23,7 @@ const postData = [
 ]
 
 app.get('/posts', authToken, (req, res) => {
-    console.log(req.user)
-    res.json(postData.filter(post => post.username === req.user.name));
+    res.json(postData.filter(post => post.username === req.user.name)); //req to db
 })
 
 
@@ -36,7 +35,6 @@ function authToken(req, res, next) {
     if (token == null) return res.sendStatus(401);
     jwt.verify(token, ACCESS_TOKEN_SECRET, (err, user) => {
         if (err) return res.sendStatus(403);
-        console.log(user, ' ')
         req.user = user;
         next()//move on from middleware
     })
